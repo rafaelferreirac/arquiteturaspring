@@ -2,6 +2,7 @@ package iogithub.rafaelferreirac.arquiteturaspring.montadora.configuration;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.Primary;
 
 import iogithub.rafaelferreirac.arquiteturaspring.montadora.Motor;
 import iogithub.rafaelferreirac.arquiteturaspring.montadora.TipoMotor;
@@ -9,8 +10,8 @@ import iogithub.rafaelferreirac.arquiteturaspring.montadora.TipoMotor;
 @Configuration
 public class MontadoraConfiguration {
 
-	@Bean
-	public Motor motorAspirado() {
+	@Bean(name = "motorAspirado")
+		Motor motorAspirado() {
 		var motor= new Motor();
 		motor.setCavalos(120);
 		motor.setCilindros(4);
@@ -20,8 +21,9 @@ public class MontadoraConfiguration {
 		return motor;
 	
 }
-	@Bean
-	public Motor motorTurbo() {
+	@Primary
+	@Bean(name = "motorTurbo")
+		Motor motorTurbo() {
 		var motor= new Motor();
 		motor.setCavalos(188);
 		motor.setCilindros(4);
@@ -30,8 +32,8 @@ public class MontadoraConfiguration {
 		motor.setTipo(TipoMotor.TURBO);
 		return motor;
 }
-	@Bean
-	public Motor motorEletrico() {
+	@Bean(name = "motorEletrico")
+		Motor motorEletrico() {
 		var motor= new Motor();
 		motor.setCavalos(110);
 		motor.setCilindros(3);

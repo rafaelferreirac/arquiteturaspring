@@ -16,6 +16,7 @@ import iogithub.rafaelferreirac.arquiteturaspring.montadora.Motor;
 public class TesteFabricaController {
 	
 	@Autowired
+	@Turbo
 	private Motor motor;
 
 	@PostMapping
